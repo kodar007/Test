@@ -19,3 +19,16 @@ RUN echo "gdk ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/gdk_no_password
 
 WORKDIR /home/gdk
 USER gdk
+
+# Install asdf, plugins and correct versions
+ENV PATH="/home/gdk/.asdf/shims:/home/gdk/.asdf/bin:${PATH}"
+COPY --chown=gdk .tool-versions .
+RUN git clone https://github.com/asdf-vm/asdf.git /home/gdk/.asdf --branch v0.8.0 && \
+  for plugin in $(grep -v '#' .tool-versions | cut -f1 -d" "); do \
+  echo "Installing asdf plugin '$plugin' and install current version" ; \
+  asdf plugin add $plugin; \
+  NODEJS_CHECK_SIGNATURES=no asdf install ; done \
+  # simple tests that tools work
+  && bash -lec "asdf version; yarn --version; node --version; ruby --version" \
+  # clear tmp caches e.g. from postgres compilation
+  && rm -rf /tmp/*
