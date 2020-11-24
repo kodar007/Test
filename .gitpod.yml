@@ -1,5 +1,6 @@
 # image: registry.gitlab.com/gitlab-org/gitlab-development-kit/gitpod-workspace:gitpod-workspace-image
-image: kodar007/u20
+image: 
+  file: Dockerfile
 
 # tasks:
 
