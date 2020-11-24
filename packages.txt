@@ -1,0 +1,37 @@
+# Packages used by Dockerfile
+# Keep the file list alphabetically sorted, makes diffs and merges easier
+
+# essentials
+curl
+git
+git-lfs
+gpg
+lsb-core
+sudo
+tzdata
+wget
+
+# rest of gitlab requirements
+cmake
+ed
+g++
+libicu-dev
+libkrb5-dev
+libpq-dev
+libre2-dev
+libreadline-dev
+libsqlite3-dev
+libssl-dev
+zlib1g-dev
+libpcre2-dev
+openssh-server
+pkg-config
+redis-server
+
+# GDK tools
+graphicsmagick
+libimage-exiftool-perl
+net-tools
+psmisc
+rsync
+runit
