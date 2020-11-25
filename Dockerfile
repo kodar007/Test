@@ -11,9 +11,10 @@ ENV GO_VERSION=${GITLAB_GO_VERSION} \
 COPY packages.txt /
 RUN sudo apt-get update \
   && sudo apt-get install -y software-properties-common \
-  && sudo add-apt-repository ppa:git-core/ppa -y \
-  && sudo apt-get install -y $(sed -e 's/#.*//' /packages.txt) postgresql postgresql-contrib libpq-dev chromium-chromedriver \
-  && sudo apt-get purge software-properties-common -y \
+  && sudo add-apt-repository ppa:git-core/ppa -y 
+RUN sudo apt-get install -y $(sed -e 's/#.*//' /packages.txt) 
+RUN sudo apt-get install -y postgresql postgresql-contrib libpq-dev chromium-chromedriver 
+RUN sudo apt-get purge software-properties-common -y \
   && sudo apt-get clean -y \
   && sudo apt-get autoremove -y \
   && sudo rm -rf /var/cache/apt/* /var/lib/apt/lists/* /tmp/*
