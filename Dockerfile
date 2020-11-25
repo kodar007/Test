@@ -38,7 +38,8 @@ RUN sudo mkdir -p /workspace/gitlab && sudo chown -R gitpod:gitpod /workspace
 RUN echo "GITLAB_BUNDLER_VERSION  $GITLAB_BUNDLER_VERSION" && \
     echo "GITLAB_RUBY_VERSION     $GITLAB_RUBY_VERSION" && \
     echo "GITLAB_NODE_VERSION     $GITLAB_NODE_VERSION" && \
-    echo "GITLAB_GO_VERSION       $GITLAB_GO_VERSION" && \
+    echo "GITLAB_GO_VERSION       $GITLAB_GO_VERSION"
+
 RUN GOPATH=$HOME/go-packages && \
         GOROOT=$HOME/go && \
         npm upgrade --global yarn && \
