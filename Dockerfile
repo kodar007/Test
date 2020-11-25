@@ -35,22 +35,22 @@ RUN sudo mkdir -p /workspace/gitlab && sudo chown -R gitpod:gitpod /workspace
 
 # RUN bash -lc "rvm get stable"
 
-# RUN echo "GITLAB_BUNDLER_VERSION  $GITLAB_BUNDLER_VERSION" && \
-#     echo "GITLAB_RUBY_VERSION     $GITLAB_RUBY_VERSION" && \
-#     echo "GITLAB_NODE_VERSION     $GITLAB_NODE_VERSION" && \
-#     echo "GITLAB_GO_VERSION       $GITLAB_GO_VERSION" && \
-#     bash -lc " \
-#         GOPATH=$HOME/go-packages && \
-#         GOROOT=$HOME/go && \
-#         npm upgrade --global yarn && \
-#         rvm install $GITLAB_RUBY_VERSION --create && \
-#         rvm use $GITLAB_RUBY_VERSION --default && \
-#         echo \"rvm use $GITLAB_RUBY_VERSION --default > /dev/null\" > ~/.bashrc.d/71-ruby && \
-#         gem install bundler -v $GITLAB_BUNDLER_VERSION && \
-#         gem install gitlab-development-kit mdl && \
-#         . $HOME/.nvm/nvm.sh && \
-#         nvm install $GITLAB_NODE_VERSION && \
-#         nvm alias default $GITLAB_NODE_VERSION && \
-#         rm -rf go && curl -sSL https://storage.googleapis.com/golang/go$GITLAB_GO_VERSION.linux-amd64.tar.gz | tar xzs && \
-#         cd /workspace && gdk init \
-#     "
+RUN echo "GITLAB_BUNDLER_VERSION  $GITLAB_BUNDLER_VERSION" && \
+    echo "GITLAB_RUBY_VERSION     $GITLAB_RUBY_VERSION" && \
+    echo "GITLAB_NODE_VERSION     $GITLAB_NODE_VERSION" && \
+    echo "GITLAB_GO_VERSION       $GITLAB_GO_VERSION" && \
+    bash -lc " \
+        GOPATH=$HOME/go-packages && \
+        GOROOT=$HOME/go && \
+        npm upgrade --global yarn && \
+        rvm install $GITLAB_RUBY_VERSION --create && \
+        rvm use $GITLAB_RUBY_VERSION --default && \
+        echo \"rvm use $GITLAB_RUBY_VERSION --default > /dev/null\" > ~/.bashrc.d/71-ruby && \
+        gem install bundler -v $GITLAB_BUNDLER_VERSION && \
+        gem install gitlab-development-kit mdl && \
+        . $HOME/.nvm/nvm.sh && \
+        nvm install $GITLAB_NODE_VERSION && \
+        nvm alias default $GITLAB_NODE_VERSION && \
+        rm -rf go && curl -sSL https://storage.googleapis.com/golang/go$GITLAB_GO_VERSION.linux-amd64.tar.gz | tar xzs && \
+        cd /workspace && gdk init \
+    "
