@@ -32,7 +32,7 @@ RUN echo "rvm_silence_path_mismatch_check_flag=1" >> $HOME/.rvmrc
 
 RUN sudo mkdir -p /workspace/gitlab && sudo chown -R gitpod:gitpod /workspace
 
-RUN rvm get stable
+RUN bash -lc "rvm get stable"
 
 RUN echo "GITLAB_BUNDLER_VERSION  $GITLAB_BUNDLER_VERSION" && \
     echo "GITLAB_RUBY_VERSION     $GITLAB_RUBY_VERSION" && \
