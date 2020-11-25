@@ -44,7 +44,7 @@ RUN GOPATH=$HOME/go-packages && \
         npm upgrade --global yarn && \
         rvm install $GITLAB_RUBY_VERSION --create && \
         rvm use $GITLAB_RUBY_VERSION --default && \
-        echo "rvm use $GITLAB_RUBY_VERSION --default > /dev/null\" > ~/.bashrc.d/71-ruby" && 
+        echo "rvm use $GITLAB_RUBY_VERSION --default > /dev/null\" > ~/.bashrc.d/71-ruby" && \
         gem install bundler -v $GITLAB_BUNDLER_VERSION && \
         gem install gitlab-development-kit mdl && \
         . $HOME/.nvm/nvm.sh && \
